@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wine-python-service
+spec:
+  selector:
+    app: wine-python
+  ports:
+  - protocol: "TCP"
+    port: 6000
+    targetPort: 5000
+  type: LoadBalancer
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wine-python
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: wine-python
+    spec:
+      containers:
+      - name: wine-python
+        image: wine-python:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
