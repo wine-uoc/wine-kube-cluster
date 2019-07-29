@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: wine-python
-        image: xvilajosana/wine-uoc
+        image: xvilajosana/wine-uoc:wine-python-v1
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
