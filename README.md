@@ -182,4 +182,22 @@ Reset it.
 sudo kubeadm reset
 ```
 
+# Deploy an image hosted at docker hub.
+consider we have a yaml file specifying the deployment and pointing to the docker hub image. For example see 
 
+https://github.com/wine-uoc/wine-kube-cluster/tree/master/sample-deployment/kubernetes
+
+Deploy it from the master node as:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/wine-uoc/wine-kube-cluster/master/sample-deployment/kubernetes/deployment.yaml
+```
+
+check all worked by 
+
+```
+kubectl get pods
+```
+
+
+```
