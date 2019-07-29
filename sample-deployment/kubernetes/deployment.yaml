@@ -18,6 +18,9 @@ kind: Deployment
 metadata:
   name: wine-python
 spec:
+  selector:
+    matchLabels:
+      app: wine-python
   replicas: 4
   template:
     metadata:
