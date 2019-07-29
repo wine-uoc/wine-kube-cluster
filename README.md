@@ -146,4 +146,40 @@ you can clear everything by executing the following at each node (master and wor
 sudo kubeadm reset
 ```
 
+## Unjoin a worker node
+
+if you want to remove a node from the cluster in a safe manner do the following:
+
+### In the master
+
+```
+kubectl get nodes
+```
+
+First drain the node
+
+```
+kubectl drain <node-name>
+```
+
+You might have to ignore daemonsets and local-data in the machine. In this case use:
+
+```
+kubectl drain <node-name> --ignore-daemonsets --delete-local-data
+```
+
+Finally delete the node
+
+```
+kubectl delete node <node-name>
+```
+
+### In the node.
+
+Reset it.
+
+```
+sudo kubeadm reset
+```
+
 
