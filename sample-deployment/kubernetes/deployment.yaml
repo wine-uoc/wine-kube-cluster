@@ -11,12 +11,11 @@ spec:
     targetPort: 5000
   type: LoadBalancer
 
-
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wine-python
+  name: wine-python-deployment
 spec:
   selector:
     matchLabels:
@@ -30,6 +29,5 @@ spec:
       containers:
       - name: wine-python
         image: xvilajosana/wine-uoc:wine-python-v1
-        imagePullPolicy: Always
         ports:
         - containerPort: 5000
