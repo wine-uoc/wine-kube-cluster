@@ -9,7 +9,9 @@ spec:
   - protocol: "TCP"
     port: 6000
     targetPort: 5000
+  loadBalancerIP: 10.10.10.51
   type: LoadBalancer
+
 
 ---
 apiVersion: apps/v1
