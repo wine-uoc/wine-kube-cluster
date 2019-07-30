@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: wine-python
-        image: xvilajosana/wine-demo-kube:1.0
+        image: xvilajosana/wine-demo-kube:1.1
         ports:
         - containerPort: 5000
