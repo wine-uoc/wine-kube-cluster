@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import socket
 app = Flask(__name__)
 
@@ -6,12 +6,18 @@ li = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p']
 
 @app.route("/")
 def hello():
-    s = "Hello from Xavi in {0}!".format(socket.gethostname())
+    s = "<h1>Hello from Xavi in {0}!</h1>".format(socket.gethostname())
     return s
+        
         
 @app.route("/compute")    
 def compute():
-    return str(permute(4,li))   
+    permutations = request.args.get('p') #if key doesn't exist, returns None
+    print(permutations)
+    if (permutations == None):
+        permutations = 3
+        
+    return str(permute(int(permutations),li))   
 
     
 #the recursive permutation    
